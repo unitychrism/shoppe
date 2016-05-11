@@ -13,8 +13,7 @@ module Shoppe
     end
 
     def show
-      @addresses = @vendor.addresses.ordered.load
-      @orders = @vendor.orders.ordered.load
+      # Load vendor relational data here if necessary
     end
 
     def create

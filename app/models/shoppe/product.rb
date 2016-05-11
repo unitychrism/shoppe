@@ -21,6 +21,9 @@ module Shoppe
     # @return [Shoppe::ProductCategory]
     has_many :product_categories, class_name: 'Shoppe::ProductCategory', through: :product_categorizations
 
+    # Product vendors
+    has_many :vendors, class_name: 'Shoppe::Vendor'
+
     # The product's tax rate
     #
     # @return [Shoppe::TaxRate]
