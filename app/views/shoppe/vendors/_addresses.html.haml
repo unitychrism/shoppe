@@ -1,0 +1,20 @@
+.addresses
+  .table
+    %table.data
+      %thead
+        %tr
+          %th= t('shoppe.vendors.type')
+          %th= t('shoppe.vendors.default')
+          %th= t('shoppe.vendors.address')
+          %th
+      %tbody
+        - if @addresses.empty?
+          %tr.empty
+            %td{:colspan => 4}= t('shoppe.vendors.no_addresses')
+        - else
+          - for address in @addresses
+            %tr
+              %td= address.address_type.capitalize
+              %td= boolean_tag address.default
+              %td= address.full_address
+              %td= link_to t('shoppe.vendors.edit'), edit_vendor_address_path(@vendor, address)

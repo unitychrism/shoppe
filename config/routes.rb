@@ -6,6 +6,11 @@ Shoppe::Engine.routes.draw do
     resources :addresses
   end
 
+  resources :vendors do
+    post :search, :on => :collection
+    resources :addresses
+  end
+
   resources :product_categories do
     resources :localisations, controller: 'product_category_localisations'
   end

@@ -731,6 +731,41 @@ en:
       updated_successfully: Customer has been updated successfully.
       deleted_successfully: Customer has been deleted successfully.
 
+    vendors:
+      vendors: Vendors
+      new_vendor: New vendor
+      search_vendor: Search vendor
+      name: Name
+      company: Company
+      email: E-Mail
+      phone: Phone
+      mobile_phone: Mobile phone
+      no_vendors: No vendors to display.
+      search: Search
+      first_or_last_name: First or last name
+      back_to_vendors_list: Back to vendor list
+      new_address: New address
+      edit: Edit
+      vendor_information: Vendor Information
+      cancel: Cancel
+      first_name: First name
+      last_name: Last name
+      delete: Delete
+      save: Save
+      creating_vendor: Creating Vendor...
+      updating_vendor: Updating Vendor...
+      delete_confirmation: Are you sure you wish to remove this vendor?
+      type: Type
+      default: Default
+      address: Address
+      no_addresses: No addresses to display.
+      addresses: Addresses
+      adresse: Address
+      created_successfully: Vendor has been created successfully.
+      updated_successfully: Vendor has been updated successfully.
+      deleted_successfully: Vendor has been deleted successfully.      
+
+
     addresses:
       address_information: Address Information
       back_to_customer: Back customer
@@ -750,6 +785,7 @@ en:
         users: Users
         countries: Countries
         settings: Settings
+        vendors: Vendors
 
     settings:
 

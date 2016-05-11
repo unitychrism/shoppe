@@ -1,0 +1,32 @@
+- @page_title = t('shoppe.vendors.vendors')
+
+= content_for :header do
+  %p.buttons
+    = link_to t('shoppe.vendors.new_vendor'), :new_vendor, class: "button green"
+    = link_to t('shoppe.vendors.search_vendor'), '#', class: 'button', rel: "searchVendors"
+  %h2.users= t('shoppe.vendors.vendors')
+
+= render "search_form"
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.vendors.name')
+        %th= t('shoppe.vendors.company')
+        %th= t('shoppe.vendors.email')
+        %th= t('shoppe.vendors.phone')
+        %th= t('shoppe.vendors.mobile_phone')
+    %tbody
+      - if @vendors.empty?
+        %tr.empty
+          %td{colspan: 5}= t('shoppe.vendors.no_vendors')
+      - else
+        - for vendor in @vendors
+          %tr
+            %td= link_to vendor.full_name, vendor
+            %td= link_to vendor.company, vendor
+            %td= vendor.email
+            %td= vendor.phone
+            %td= vendor.mobile
+= paginate @vendors

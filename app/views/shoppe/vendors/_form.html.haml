@@ -1,0 +1,37 @@
+= form_for @vendor do |f|
+  = f.error_messages
+
+  = field_set_tag t('shoppe.vendors.vendor_information') do
+    .splitContainer
+      %dl.third
+        %dt= f.label :first_name, t('shoppe.vendors.first_name')
+        %dd= f.text_field :first_name, :class => "text focus"
+      %dl.third
+        %dt= f.label :last_name, t('shoppe.vendors.last_name')
+        %dd= f.text_field :last_name, :class => "text"
+      %dl.third
+        %dt= f.label :company, t('shoppe.vendors.company')
+        %dd= f.text_field :company, :class => "text"
+    .splitContainer
+      %dl.third
+        %dt= f.label :email, t('shoppe.vendors.email')
+        %dd= f.text_field :email, :class => "text"
+      %dl.third
+        %dt= f.label :phone, t('shoppe.vendors.phone')
+        %dd= f.text_field :phone, :class => "text"
+      %dl.third
+        %dt= f.label :mobile, t('shoppe.vendors.mobile_phone')
+        %dd= f.text_field :mobile, :class => "text"
+
+  %p.submit
+    - unless @vendor.new_record?
+      %span.right
+        = link_to t('shoppe.vendors.delete'),
+                  @vendor,
+                  class: 'button purple',
+                  method: :delete,
+                  data: {confirm: t('shoppe.vendors.delete_confirmation')}
+    = f.submit t('shoppe.vendors.save'),
+               class: 'button green',
+               data: {disable_with: (@vendor.new_record? ? t('shoppe.vendors.creating_vendor') : t('shoppe.vendors.updating_vendor'))}
+    = link_to t('shoppe.vendors.cancel'), :vendors, :class => 'button'

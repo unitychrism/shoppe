@@ -10,6 +10,7 @@ require 'shoppe/navigation_manager'
 #
 Shoppe::NavigationManager.build(:admin_primary) do
   add_item :customers
+  add_item :vendors
   add_item :orders
   add_item :products
   add_item :product_categories
