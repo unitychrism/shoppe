@@ -6,7 +6,8 @@ module Shoppe
 
     self.table_name = "shoppe_vendors"
 
-    has_many :products, class_name: "Shoppe::Product"
+    # Vendor products
+    has_many :products, dependent: :restrict_with_exception, class_name: 'Shoppe::Product'
 
     # Validations
     validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEX}

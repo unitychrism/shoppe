@@ -528,6 +528,7 @@ en:
       update_notice: Product has been updated successfully
       website_properties: Website Properties
       weight: Weight
+      vendor: Product Vendor
 
       filter:
         sku: filter by product sku
@@ -746,6 +747,7 @@ en:
       back_to_vendors_list: Back to vendor list
       new_address: New address
       edit: Edit
+      choose_vendor: Choose a vendor
       vendor_information: Vendor Information
       cancel: Cancel
       first_name: First name

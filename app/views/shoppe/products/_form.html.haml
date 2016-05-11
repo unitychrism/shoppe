@@ -24,6 +24,10 @@
     %dl
       %dt= f.label :in_the_box, t('shoppe.products.in_the_box')
       %dd= f.text_area :in_the_box, :class => 'text'
+    .splitContainer
+      %dl.half
+        %dt= f.label :vendor_id, t('shoppe.products.vendor')
+        %dd= f.select :vendor_id, options_for_select(Shoppe::Vendor.ordered.map { |v| [v.name, v.id] }, @product.vendor.nil? ? nil : @product.vendor.id), :include_blank => true
 
   = field_set_tag t('shoppe.products.attributes') do
     .margin

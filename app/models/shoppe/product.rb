@@ -21,13 +21,15 @@ module Shoppe
     # @return [Shoppe::ProductCategory]
     has_many :product_categories, class_name: 'Shoppe::ProductCategory', through: :product_categorizations
 
-    # Product vendors
-    has_many :vendors, class_name: 'Shoppe::Vendor'
-
     # The product's tax rate
     #
     # @return [Shoppe::TaxRate]
     belongs_to :tax_rate, class_name: 'Shoppe::TaxRate'
+
+    # The product vendor
+    #
+    # @return [Shoppe::Vendor]
+    belongs_to :vendor, class_name: 'Shoppe::Vendor'
 
     # Ordered items which are associated with this product
     has_many :order_items, dependent: :restrict_with_exception, class_name: 'Shoppe::OrderItem', as: :ordered_item
