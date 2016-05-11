@@ -1,0 +1,12 @@
+- @page_title = t('shoppe.manufacturers.manufacturers') + " - #{@manufacturer.name}"
+= content_for :header do
+  %p.buttons
+    = link_to t('shoppe.manufacturers.edit'), [:edit, @manufacturer], class: "button"
+  %h2.users= t('shoppe.manufacturers.manufacturers') + "- #{@manufacturer.name}"
+
+#manufacturer
+  .details
+    .left
+      %dl
+        %dt= t('shoppe.manufacturers.name')
+        %dd= @manufacturer.name

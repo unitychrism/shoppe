@@ -1,0 +1,21 @@
+= form_for @manufacturer do |f|
+  = f.error_messages
+
+  = field_set_tag t('shoppe.manufacturers.manufacturer_information') do
+    .splitContainer
+      %dl.half
+        %dt= f.label :name, t('shoppe.manufacturers.company_name')
+        %dd= f.text_field :name, :class => "text focus"
+
+  %p.submit
+    - unless @manufacturer.new_record?
+      %span.right
+        = link_to t('shoppe.manufacturers.delete'),
+                  @manufacturer,
+                  class: 'button purple',
+                  method: :delete,
+                  data: {confirm: t('shoppe.manufacturers.delete_confirmation')}
+    = f.submit t('shoppe.manufacturers.save'),
+               class: 'button green',
+               data: {disable_with: (@manufacturer.new_record? ? t('shoppe.manufacturers.creating_manufacturer') : t('shoppe.manufacturers.updating_manufacturer'))}
+    = link_to t('shoppe.manufacturers.cancel'), :manufacturers, :class => 'button'

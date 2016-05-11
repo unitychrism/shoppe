@@ -12,8 +12,8 @@
   %table.data
     %thead
       %tr
-        %th= t('shoppe.vendors.name')
         %th= t('shoppe.vendors.company')
+        %th= t('shoppe.vendors.name')
         %th= t('shoppe.vendors.email')
         %th= t('shoppe.vendors.phone')
         %th= t('shoppe.vendors.mobile_phone')
@@ -24,8 +24,8 @@
       - else
         - for vendor in @vendors
           %tr
-            %td= link_to vendor.full_name, vendor
             %td= link_to vendor.company, vendor
+            %td= link_to vendor.full_name, vendor            
             %td= vendor.email
             %td= vendor.phone
             %td= vendor.mobile

@@ -1,0 +1,6 @@
+.manufacturerSearch{:style => action_name == 'search' ? "display:block" : ''}
+  = search_form_for @query, :url => search_manufacturers_path, :html => { :method => :post } do |f|
+    %dl.left
+      %dt= f.label :name_cont, t('shoppe.manufacturers.company_name')
+      %dd= f.text_field :name_cont
+      %dd= f.submit t('shoppe.manufacturers.search'), :class => 'button green button'

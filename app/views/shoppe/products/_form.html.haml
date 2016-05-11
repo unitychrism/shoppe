@@ -28,6 +28,9 @@
       %dl.half
         %dt= f.label :vendor_id, t('shoppe.products.vendor')
         %dd= f.select :vendor_id, options_for_select(Shoppe::Vendor.ordered.map { |v| [v.name, v.id] }, @product.vendor.nil? ? nil : @product.vendor.id), :include_blank => true
+      %dl.half
+        %dt= f.label :manufacturer_id, t('shoppe.products.manufacturer')
+        %dd= f.select :manufacturer_id, options_for_select(Shoppe::Manufacturer.ordered.map { |v| [v.name, v.id] }, @product.manufacturer.nil? ? nil : @product.manufacturer.id), :include_blank => true
 
   = field_set_tag t('shoppe.products.attributes') do
     .margin

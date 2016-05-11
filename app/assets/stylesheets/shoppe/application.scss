@@ -334,7 +334,7 @@ header.main {
 	//
 	// order & customer summary pages
 	//
-	#order, #customer, #vendor {
+	#order, #customer, #vendor, #manufacturer {
 		.details {
 			overflow:hidden;
 			.left {
@@ -455,7 +455,7 @@ header.main {
 	//
 	// order search
 	//
-	div.orderSearch, div.customerSearch, div.vendorSearch {
+	div.orderSearch, div.customerSearch, div.vendorSearch, div.manufacturerSearch {
 		overflow:hidden;
 		display:none;
 		dl.left, dl.right {

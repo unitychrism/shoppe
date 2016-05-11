@@ -767,6 +767,41 @@ en:
       updated_successfully: Vendor has been updated successfully.
       deleted_successfully: Vendor has been deleted successfully.      
 
+    manufacturers:
+      manufacturers: Manufacturers
+      new_manufacturer: New manufacturer
+      search_manufacturer: Search manufacturer
+      name: Name
+      company: Company
+      email: E-Mail
+      phone: Phone
+      mobile_phone: Mobile phone
+      no_manufacturers: No manufacturers to display.
+      search: Search
+      first_or_last_name: First or last name
+      back_to_manufacturers_list: Back to manufacturer list
+      new_address: New address
+      edit: Edit
+      choose_manufacturer: Choose a manufacturer
+      manufacturer_information: Manufacturer Information
+      cancel: Cancel
+      first_name: First name
+      last_name: Last name
+      delete: Delete
+      save: Save
+      creating_manufacturer: Creating Manufacturer...
+      updating_manufacturer: Updating Manufacturer...
+      delete_confirmation: Are you sure you wish to remove this manufacturer?
+      type: Type
+      default: Default
+      address: Address
+      no_addresses: No addresses to display.
+      addresses: Addresses
+      adresse: Address
+      created_successfully: Manufacturer has been created successfully.
+      updated_successfully: Manufacturer has been updated successfully.
+      deleted_successfully: Manufacturer has been deleted successfully.
+      company_name: Company Name
 
     addresses:
       address_information: Address Information
@@ -788,6 +823,7 @@ en:
         countries: Countries
         settings: Settings
         vendors: Vendors
+        manufacturers: Manufacturers
 
     settings:
 

@@ -1,0 +1,24 @@
+- @page_title = t('shoppe.manufacturers.manufacturers')
+
+= content_for :header do
+  %p.buttons
+    = link_to t('shoppe.manufacturers.new_manufacturer'), :new_manufacturer, class: "button green"
+    = link_to t('shoppe.manufacturers.search_manufacturer'), '#', class: 'button', rel: "searchManufacturers"
+  %h2.users= t('shoppe.manufacturers.manufacturers')
+
+= render "search_form"
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.manufacturers.company_name')
+    %tbody
+      - if @manufacturers.empty?
+        %tr.empty
+          %td{colspan: 5}= t('shoppe.manufacturers.no_manufacturers')
+      - else
+        - for manufacturer in @manufacturers
+          %tr
+            %td= link_to manufacturer.name, manufacturer
+= paginate @manufacturers

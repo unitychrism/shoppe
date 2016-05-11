@@ -8,7 +8,12 @@ Shoppe::Engine.routes.draw do
 
   resources :vendors do
     post :search, :on => :collection
-    resources :addresses
+    resources :products
+  end
+
+  resources :manufacturers do
+    post :search, :on => :collection
+    resources :products
   end
 
   resources :product_categories do

@@ -31,6 +31,11 @@ module Shoppe
     # @return [Shoppe::Vendor]
     belongs_to :vendor, class_name: 'Shoppe::Vendor'
 
+    # The product manufacturer
+    #
+    # @return [Shoppe::Manufacturer]
+    belongs_to :manufacturer, class_name: 'Shoppe::Manufacturer'
+
     # Ordered items which are associated with this product
     has_many :order_items, dependent: :restrict_with_exception, class_name: 'Shoppe::OrderItem', as: :ordered_item
 
