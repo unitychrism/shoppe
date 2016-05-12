@@ -36,6 +36,7 @@ module Shoppe
         # If we have successfully charged the card (i.e. no exception) we can go ahead and mark this
         # order as 'received' which means it can be accepted by staff.
         self.status = 'received'
+        self.location_id = 1
         self.received_at = Time.now
         save!
 
