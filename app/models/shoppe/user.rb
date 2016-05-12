@@ -1,13 +1,21 @@
 module Shoppe
   class User < ActiveRecord::Base
+    # User types
+    USER_TYPES = %w(customer locationmanager admin).freeze
+
     self.table_name = 'shoppe_users'
 
     has_secure_password
+
+    belongs_to :location, class_name: "Shoppe::Location"
 
     # Validations
     validates :first_name, presence: true
     validates :last_name, presence: true
     validates :email_address, presence: true
+    validates :user_type, inclusion: { in: USER_TYPES }
+
+    before_validation { self.user_type = USER_TYPES.first if user_type.blank? }
 
     # The user's first name & last name concatenated
     #

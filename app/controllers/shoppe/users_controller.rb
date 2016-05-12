@@ -45,7 +45,7 @@ module Shoppe
     private
 
     def safe_params
-      params[:user].permit(:first_name, :last_name, :email_address, :password, :password_confirmation)
+      params[:user].permit(:first_name, :last_name, :email_address, :password, :password_confirmation, :location_id, :user_type)
     end
   end
 end

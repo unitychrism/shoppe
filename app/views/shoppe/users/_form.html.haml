@@ -20,6 +20,15 @@
         %dt= f.label :password_confirmation, t('shoppe.users.password_confirmation')
         %dd= f.password_field :password_confirmation, :class => 'text'
 
+  = field_set_tag t("shoppe.users.configuration") do
+    .splitContainer
+      %dl.half
+        %dt= f.label :location_id, t('shoppe.users.location')
+        %dd= f.select :location_id, options_for_select(Shoppe::Location.ordered.map { |v| [v.name, v.id] }, @user.location.nil? ? nil : @user.location.id), :include_blank => true
+      %dl.half
+        %dt= f.label :user_type, t('shoppe.users.user_type')
+        %dd= f.select :user_type, options_for_select(Shoppe::User::USER_TYPES.map { |type| [t("shoppe.users.user_types.#{type}"), type] }, @user.user_type.nil? ? nil : @user.user_type), :include_blank => true
+
   %p.submit
     - unless @user.new_record?
       %span.right= link_to t('shoppe.delete'), @user, :class => 'button purple', :method => :delete, :data => {:confirm => t('shoppe.users.delete_confirmation')}

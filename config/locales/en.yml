@@ -640,6 +640,12 @@ en:
       update_notice: User has been updated successfully
       user_details: User Details
       users: Users
+      configuration: Configuration
+      user_type: User Type
+      user_types:
+        customer: Customer
+        locationmanager: Location Manager
+        admin: Administrator
 
     variants:
       back_to_variants: Back to variants

@@ -15,7 +15,7 @@ module Shoppe
     def create
       @location = Shoppe::Location.new(safe_params)
       if @location.save
-        redirect_to :locations, flash: { notice: t('shoppe.locations.creating_location') }
+        redirect_to :locations, flash: { notice: t('shoppe.locations.created_successfully') }
       else
         render action: 'form'
       end
@@ -27,7 +27,7 @@ module Shoppe
 
     def update
       if @location.update(safe_params)
-        redirect_to [:edit, @location], flash: { notice: t('shoppe.locations.updating_location') }
+        redirect_to [:edit, @location], flash: { notice: t('shoppe.locations.updated_successfully') }
       else
         render action: 'form'
       end
@@ -35,7 +35,7 @@ module Shoppe
 
     def destroy
       @location.destroy
-      redirect_to :locations, flash: { notice: t('shoppe.locations.destroy_') }
+      redirect_to :locations, flash: { notice: t('shoppe.locations.deleted_successfully') }
     end
 
     private
