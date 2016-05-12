@@ -25,6 +25,9 @@ module Shoppe
     belongs_to :customer, class_name: 'Shoppe::Customer'
     has_many :addresses, through: :customers, class_name: 'Shoppe::Address'
 
+    # The order belongs to a location
+    belongs_to :location, class_name: 'Shoppe::Location'
+
     # Validations
     validates :token, presence: true
     with_options if: proc { |o| !o.building? } do |order|
