@@ -732,6 +732,34 @@ en:
       updated_successfully: Customer has been updated successfully.
       deleted_successfully: Customer has been deleted successfully.
 
+    locations:
+      locations: Locations
+      name: Location Name
+      no_locations: No Locations
+      back_to_locations: Back to Locations
+      location_details: Location Details
+      address: Address Information
+      address1: Address 1
+      address2: Address 2
+      address3: City
+      address4: State/Region
+      postcode: Postal Code
+      country: Country
+      select_country: Select a country
+      delete: Delete
+      save: Save
+      creating_location: Creating Location...
+      updating_location: Updating Location...
+      delete_confirmation: Are you sure you wish to remove this vendor?
+      type: Type
+      default: Default
+      address: Address
+      no_addresses: No addresses to display.
+      addresses: Addresses
+      created_successfully: Location has been created successfully.
+      updated_successfully: Location has been updated successfully.
+      deleted_successfully: Location has been deleted successfully.        
+
     vendors:
       vendors: Vendors
       new_vendor: New vendor
@@ -813,6 +841,7 @@ en:
 
     navigation:
       admin_primary:
+        locations: Locations
         customers: Customers
         orders: Orders
         products: Products

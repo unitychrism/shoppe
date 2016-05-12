@@ -1,0 +1,19 @@
+- @page_title = t('shoppe.locations.locations')
+
+= content_for :header do
+  %p.buttons= link_to t('shoppe.locations.new_location'), :new_location, :class => 'button green'
+  %h2.locations= t('shoppe.locations.locations')
+
+.table
+  %table.data
+    %thead
+      %tr
+        %th= t('shoppe.locations.name')
+    %tbody
+      - if @locations.empty?
+        %tr.empty
+          %td{colspan: 1}= t('shoppe.locations.no_locations')
+      - else
+        - for location in @locations
+          %tr
+            %td= link_to location.name, [:edit, location]

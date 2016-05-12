@@ -1,0 +1,40 @@
+- @page_title = t('shoppe.locations.locations')
+= content_for :header do
+  %p.buttons= link_to t('shoppe.locations.back_to_locations'), :locations, :class => 'button grey'
+  %h2.locations= t('shoppe.locations.locations')
+
+= form_for @location do |f|
+  = f.error_messages
+  = field_set_tag t('shoppe.locations.location_details') do
+    .splitContainer
+      %dl.half
+        %dt= f.label :name, t('shoppe.locations.name')
+        %dd= f.text_field :name, :class => 'focus text', :required => true
+
+  = field_set_tag t('shoppe.locations.address') do
+    .splitContainer
+      %dl.third
+        %dt= f.label :address1, t('shoppe.locations.address1')
+        %dd= f.text_field :address1, class: 'text'
+      %dl.third
+        %dt= f.label :address2, t('shoppe.locations.address2')
+        %dd= f.text_field :address2, class: 'text'
+      %dl.third
+        %dt= f.label :address3, t('shoppe.locations.address3')
+        %dd= f.text_field :address3, class: 'text'
+    .splitContainer
+      %dl.third
+        %dt= f.label :address4, t('shoppe.locations.address4')
+        %dd= f.text_field :address4, class: 'text'
+      %dl.third
+        %dt= f.label :postcode, t('shoppe.locations.postcode')
+        %dd= f.text_field :postcode, class: 'text'
+      %dl.third
+        %dt= f.label :country, t('shoppe.locations.country')
+        %dd= f.collection_select :country, Shoppe::Country.ordered, :id, :name, {include_blank: true}, {class: 'chosen', data: { placeholder: t('shoppe.locations.select_country')}} 
+
+  %p.submit
+    - unless @location.new_record?
+      %span.right= link_to t('shoppe.delete'), @location, :class => 'button purple', :method => :delete, :data => {:confirm => t('shoppe.locations.delete_confirmation') }
+    = f.submit t('shoppe.submit'), :class => 'button green'
+    = link_to t('shoppe.cancel'), :locations, :class => 'button'

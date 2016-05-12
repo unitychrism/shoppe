@@ -11,6 +11,13 @@ Shoppe::Engine.routes.draw do
     resources :products
   end
 
+  resources :locations do
+    post :search, :on => :collection
+    resources :locations
+  end
+
+
+
   resources :manufacturers do
     post :search, :on => :collection
     resources :products
