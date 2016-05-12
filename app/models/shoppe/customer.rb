@@ -9,6 +9,8 @@ module Shoppe
 
     has_many :orders, dependent: :restrict_with_exception, class_name: 'Shoppe::Order'
 
+    belongs_to :user, dependent: :destroy, class_name: 'Shoppe::User'
+
     # Validations
     validates :email, presence: true, format: { with: EMAIL_REGEX }
     validates :phone, presence: true, format: { with: PHONE_REGEX }
