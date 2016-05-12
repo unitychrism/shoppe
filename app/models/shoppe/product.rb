@@ -21,6 +21,12 @@ module Shoppe
     # @return [Shoppe::ProductCategory]
     has_many :product_categories, class_name: 'Shoppe::ProductCategory', through: :product_categorizations
 
+    # The product's stock locations
+    #
+    # @return [Shoppe::Location]
+    has_many :product_locations
+    has_many :locations, class_name: 'Shoppe::Location', through: :product_locations
+
     # The product's tax rate
     #
     # @return [Shoppe::TaxRate]

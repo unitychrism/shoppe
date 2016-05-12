@@ -24,7 +24,7 @@
     .splitContainer
       %dl.half
         %dt= f.label :location_id, t('shoppe.users.location')
-        %dd= f.select :location_id, options_for_select(Shoppe::Location.ordered.map { |v| [v.name, v.id] }, @user.location.nil? ? nil : @user.location.id), :include_blank => true
+        %dd= f.select :location_id, options_for_select(Shoppe::Location.ordered.map { |v| [v.name, v.id] }, @user.location.nil? ? nil : @user.location.id), :include_blank => true, :required => true
       %dl.half
         %dt= f.label :user_type, t('shoppe.users.user_type')
         %dd= f.select :user_type, options_for_select(Shoppe::User::USER_TYPES.map { |type| [t("shoppe.users.user_types.#{type}"), type] }, @user.user_type.nil? ? nil : @user.user_type), :include_blank => true

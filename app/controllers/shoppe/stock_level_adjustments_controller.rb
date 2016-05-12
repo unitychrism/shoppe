@@ -14,7 +14,7 @@ module Shoppe
     end
 
     def create
-      @new_sla = @item.stock_level_adjustments.build(params[:stock_level_adjustment].permit(:description, :adjustment))
+      @new_sla = @item.stock_level_adjustments.build(params[:stock_level_adjustment].permit(:description, :adjustment, :location_id))
       if @new_sla.save
         if request.xhr?
           @new_sla = @item.stock_level_adjustments.build

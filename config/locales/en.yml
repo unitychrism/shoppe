@@ -529,6 +529,8 @@ en:
       website_properties: Website Properties
       weight: Weight
       vendor: Product Vendor
+      locations: Product Locations
+      choose_product_location: Choose product location
 
       filter:
         sku: filter by product sku
@@ -604,6 +606,7 @@ en:
       invalid_item_type: "Invalid item_type (must be one of %{suitable_objects})"
       stock_levels_for: "Stock Levels for %{item_name}"
       stock_levels_title: "Stock Levels - %{item_name}"
+      location: Stock Location
 
     tax_rates:
       address_type_option: "Apply to orders where the %{address} address matches one of the countries below"

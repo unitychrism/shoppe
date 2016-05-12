@@ -5,6 +5,9 @@
       %dt= f.label :product_categories, t('shoppe.product_category.product_categories')
       %dd= f.collection_select :product_category_ids, Shoppe::ProductCategory.ordered, :id, :name, {:prompt => false}, {:class => 'chosen', :multiple => true, :data => {:placeholder => t('shoppe.product_category.choose_product_category') } }
 
+      %dt= f.label :locations, t('shoppe.products.locations')
+      %dd= f.collection_select :locations, Shoppe::Location.ordered, :id, :name, {:prompt => false}, {:class => 'chosen', :multiple => true, :data => {:placeholder => t('shoppe.products.choose_product_location') } }
+
     .splitContainer
       %dl.third
         %dt= f.label :name, t('shoppe.products.name')
