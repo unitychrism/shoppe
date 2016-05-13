@@ -11,6 +11,11 @@
 
 html { font-family:$font; font-size:12px; color:#000; -webkit-font-smoothing:antialiased; background-color:#f7f9fc; overflow-y:scroll}
 
+ul.productStockList {
+	list-display-style: none;
+	font-weight: bold;
+}
+
 nav.sidebar {
 	width:200px;
 	background:#40454D;

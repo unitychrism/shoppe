@@ -38,8 +38,12 @@
                         %td{:width => '40%'}= link_to variant.name, edit_product_variant_path(product, variant)
                         %td{:width => '30%'}
                           - if variant.stock_control?
-                            %span.float-right= link_to t('shoppe.products.edit') , stock_level_adjustments_path(:item_type => variant.class, :item_id => variant.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
-                            = boolean_tag(variant.in_stock?, nil, :true_text => variant.stock, :false_text => t('shoppe.products.no_stock'))
+                            %ul.productStockList
+                              - for location in variant.locations
+                                %li
+                                  %span.float-left= location.name
+                                  %span= link_to t('shoppe.products.edit') , stock_level_adjustments_path(:location_id => variant.id, :item_type => variant.class, :item_id => variant.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
+                                  = boolean_tag(variant.in_stock?, nil, :true_text => variant.stock, :false_text => t('shoppe.products.no_stock'))
                           - else
                             &#8734;
               - else

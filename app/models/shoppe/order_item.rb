@@ -226,7 +226,8 @@ module Shoppe
     # Allocate any unallocated stock for this order item. There is no return value.
     def allocate_unallocated_stock!
       if ordered_item.stock_control? && unallocated_stock != 0
-        ordered_item.stock_level_adjustments.create!(parent: self, adjustment: 0 - unallocated_stock, description: "Order ##{order.number}", location_id: 1)
+        # TODO: Not assign austin
+        ordered_item.stock_level_adjustments.create!(parent: self, adjustment: 0 - unallocated_stock, description: "Order ##{order.number}", location_id: Shoppe::Location.find_by("Austin").id)
       end
     end
   end

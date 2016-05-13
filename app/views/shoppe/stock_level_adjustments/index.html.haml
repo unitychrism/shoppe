@@ -28,7 +28,7 @@
       %tbody
         %tr.form
           %td
-          %td.stockLocation= f.select :location_id, options_for_select(Shoppe::ProductLocation.ordered.map { |v| [v.name, v.id] }, nil), :include_blank => true
+          %td.stockLocation= f.select :location_id, options_for_select(Shoppe::ProductLocation.ordered.select { |v| v.product_id == @item.id }.map { |v| [v.name, v.location_id] }, nil), :include_blank => true
           %td.desc= f.text_field :description
           %td.adjustment
             = f.text_field :adjustment
