@@ -20,7 +20,8 @@ module Shoppe
           @new_sla = @item.stock_level_adjustments.build
           index
         else
-          Shoppe::ProductLocation.where(location_id: @new_sla.location_id, product_id: item.id).first_or_create
+          var prod_loc = Shoppe::ProductLocation.where(location_id: @new_sla.location_id, product_id: item.id).first_or_create
+          prod_loc.stock = prod_loc.exists? ? prod_loc.stock + adjustment : 0
           redirect_to stock_level_adjustments_path(item_id: params[:item_id], item_type: params[:item_type]), notice: t('shoppe.stock_level_adjustments.create_notice')
         end
       else

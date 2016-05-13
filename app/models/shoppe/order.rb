@@ -36,7 +36,9 @@ module Shoppe
     end
 
     # Set some defaults
-    before_validation { self.token = SecureRandom.uuid  if token.blank? }
+    before_validation { 
+        self.token = SecureRandom.uuid  if token.blank? 
+    }
 
     # Some methods for setting the billing & delivery addresses
     attr_accessor :save_addresses, :billing_address_id, :delivery_address_id

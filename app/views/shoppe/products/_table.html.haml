@@ -40,16 +40,17 @@
                           - if variant.stock_control?
                             %ul.productStockList
                               - for location in variant.locations
+                                - prod_location = Shoppe::ProductLocation.find_by(location_id: location.id, product_id: variant.id)
                                 %li
                                   %span.float-left= location.name
-                                  %span= link_to t('shoppe.products.edit') , stock_level_adjustments_path(:location_id => variant.id, :item_type => variant.class, :item_id => variant.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
-                                  = boolean_tag(variant.in_stock?, nil, :true_text => variant.stock, :false_text => t('shoppe.products.no_stock'))
+                                  %span= link_to t('shoppe.products.edit') , stock_level_adjustments_path(:location_id => prod_location.id, :item_type => variant.class, :item_id => variant.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
+                                  = boolean_tag(prod_location.in_stock?, nil, :true_text => prod_location.stock, :false_text => t('shoppe.products.no_stock'))
                           - else
                             &#8734;
               - else
-                %td
-                  - if product.stock_control?
-                    %span.float-right= link_to t('shoppe.products.edit'), stock_level_adjustments_path(:item_type => product.class, :item_id => product.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
-                    = boolean_tag(product.in_stock?, nil, :true_text => product.stock, :false_text => t('shoppe.products.no_stock'))
-                  - else
-                    &#8734;
+                %td{:colspan => 3}
+                  - for location in product.locations
+                    - prod_location = Shoppe::ProductLocation.find_by(location_id: location.id, product_id: product.id)
+                    %span.float-left= location.name                      
+                    %span= link_to t('shoppe.products.edit'), stock_level_adjustments_path(:location_id => prod_location.id, :item_type => product.class, :item_id => product.id), :class => 'edit', :rel => 'dialog', :data => {:dialog_width => 700, :dialog_behavior => 'stockLevelAdjustments'}
+                    = boolean_tag(prod_location.in_stock?, nil, :true_text => prod_location.stock, :false_text => t('shoppe.products.no_stock'))

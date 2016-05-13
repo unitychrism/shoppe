@@ -13,6 +13,13 @@ module Shoppe
    	  Shoppe::Location.find(location).name
    	end
 
+    # Is this product currently in stock at this location?
+    #
+    # @return [Boolean]
+    def in_stock?
+      stock
+    end
+
    	scope :ordered, -> { order(location_id: :asc) }
   end
 end
